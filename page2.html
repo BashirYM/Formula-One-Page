@@ -3,126 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>F1 Hub | Midfield Contenders</title>
+    <title>F1 Info - Midfield Teams</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/page2.css">
 </head>
 <body>
-    <div class="ambient-glow glow-1"></div>
-    <div class="ambient-glow glow-2"></div>
-
     <header>
-        <nav class="nav-container">
-            <div class="logo-wrapper">
-                <img src="./images/f1logo.png" alt="F1 Info Logo" class="nav-logo">
+        <nav class="nav">
+            <img src="./images/f1logo.png" alt="F1 Info Logo" class="logo">
+            <div>
+                <ul id="navbar__list"></ul>
             </div>
-            <ul id="navbar__list" class="nav-menu"></ul>
         </nav>
     </header>
 
-    <main class="main-content">
-        <header class="page-intro">
-            <p class="subtitle-tag">Challenger Category</p>
-            <h1 class="glitch-title">The Engineering Giants</h1>
-            <p class="intro-description">
-                The relentless pursuers. Harnessing extensive technical resource upgrades to close the margin on frontrunners and control the podium narrative.
-            </p>
-        </header>
+    <div class="description">
+        <h2 class="gradient-text" style="margin-top: 3em;">The Unforgiving Midfield Pack</h2>
+        <h1 class="gradient-text">The Engineering Giants</h1>
+    </div>
 
-        <!-- MCLAREN -->
-        <section id="section5" data-nav="McLaren" class="team-card mclaren-card">
-            <div class="team-header-grid">
-                <div class="brand-zone">
-                    <img src="./images/mclaren_logo.png" alt="McLaren Logo" class="team-brand-logo">
-                    <h2 class="team-title">McLaren F1 Team</h2>
-                </div>
-                <p class="team-bio">
-                    The Papaya revolution. Utilizing advanced wind-tunnel assets and dynamic on-track development trajectories to consistently hunting down victories.
+    <main>
+        <!-- Section 5: McLaren -->
+        <section id="section5" data-nav="McLaren" style="background: linear-gradient(135deg, rgba(255, 135, 0, 0.15), rgba(10, 12, 16, 0.9));">
+            <div class="landing__container">
+                <img src="./images/mclaren_logo.png" alt="McLaren Logo" class="team-logo">
+                <h2>McLaren F1 Team</h2>
+                <p>
+                    The Papaya revolution. Utilizing advanced wind-tunnel assets and dynamic on-track development trajectories to consistently hunt down race victories.
                 </p>
-            </div>
-
-            <div class="drivers-grid">
-                <div class="driver-profile-card">
-                    <div class="driver-img-container">
-                        <img src="./images/norris.png" alt="Lando Norris" class="driver-avatar">
-                        <span class="driver-number">4</span>
-                    </div>
-                    <div class="driver-details">
-                        <h3>Lando Norris</h3>
-                        <p class="driver-status">Grand Prix Winner</p>
-                        <p class="driver-bio">McLaren’s home-grown superstar, matching clinical handling precision with high-speed strategic patience.</p>
-                    </div>
-                </div>
-                <div class="driver-profile-card">
-                    <div class="driver-img-container">
-                        <img src="./images/piastri.png" alt="Oscar Piastri" class="driver-avatar">
-                        <span class="driver-number">81</span>
-                    </div>
-                    <div class="driver-details">
-                        <h3>Oscar Piastri</h3>
-                        <p class="driver-status">Calm Contender</p>
-                        <p class="driver-bio">Displaying extraordinary cold-blooded composition under pressure and phenomenal race weekend maturity.</p>
-                    </div>
-                </div>
+                <ul>
+                    <li>
+                        <img src="./images/norris.png" alt="Lando Norris" class="driver-image">
+                        <div>
+                            <strong>Lando Norris</strong>: McLaren’s home-grown superstar, matching clinical handling precision with high-speed strategic patience.
+                        </div>
+                    </li>
+                    <li>
+                        <img src="./images/piastri.png" alt="Oscar Piastri" class="driver-image">
+                        <div>
+                            <strong>Oscar Piastri</strong>: Displaying extraordinary cold-blooded composition under pressure and phenomenal race weekend maturity.
+                        </div>
+                    </li>
+                </ul>
             </div>
         </section>
 
-        <!-- MERCEDES -->
-        <section id="section6" data-nav="Mercedes" class="team-card mercedes-card">
-            <div class="team-header-grid">
-                <div class="brand-zone">
-                    <img src="./images/mercedes_logo.png" alt="Mercedes Logo" class="team-brand-logo">
-                    <h2 class="team-title">Mercedes-AMG PETRONAS</h2>
-                </div>
-                <p class="team-bio">
+        <!-- Section 6: Mercedes -->
+        <section id="section6" data-nav="Mercedes" style="background: linear-gradient(135deg, rgba(39, 204, 181, 0.15), rgba(17, 17, 17, 0.9));">
+            <div class="landing__container">
+                <img src="./images/mercedes_logo.png" alt="Mercedes Logo" class="team-logo">
+                <h2>Mercedes-AMG PETRONAS</h2>
+                <p>
                     Forged in a historic dynasty of dominance. Re-architecting operational strategies to transition speed seamlessly into a brand new era of performance.
                 </p>
-            </div>
-
-            <div class="drivers-grid">
-                <div class="driver-profile-card">
-                    <div class="driver-img-container">
-                        <img src="./images/russell.png" alt="George Russell" class="driver-avatar">
-                        <span class="driver-number">63</span>
-                    </div>
-                    <div class="driver-details">
-                        <h3>George Russell</h3>
-                        <p class="driver-status">Team Leader</p>
-                        <p class="driver-bio">Bringing explosive raw velocity alongside highly articulate engineering understanding to pilot the Silver Arrows back to the top.</p>
-                    </div>
-                </div>
-                <div class="driver-profile-card">
-                    <div class="driver-img-container">
-                        <img src="./images/antonelli.png" alt="Kimi Antonelli" class="driver-avatar">
-                        <span class="driver-number">12</span>
-                    </div>
-                    <div class="driver-details">
-                        <h3>Kimi Antonelli</h3>
-                        <p class="driver-status">The Next Gen</p>
-                        <p class="driver-bio">The phenomenal young Italian rookie arriving with a meteoric rise through the feeder series ranks and supreme corner speed talent.</p>
-                    </div>
-                </div>
+                <ul>
+                    <li>
+                        <img src="./images/russell.png" alt="George Russell" class="driver-image">
+                        <div>
+                            <strong>George Russell</strong>: Bringing explosive raw velocity alongside highly articulate engineering understanding to pilot the Silver Arrows.
+                        </div>
+                    </li>
+                    <li>
+                        <img src="./images/antonelli.png" alt="Kimi Antonelli" class="driver-image">
+                        <div>
+                            <strong>Kimi Antonelli</strong>: The phenomenal young Italian rookie arriving with a meteoric rise through the ranks and supreme corner speed talent.
+                        </div>
+                    </li>
+                </ul>
             </div>
         </section>
     </main>
 
-    <div class="action-navigation-zone">
-        <button class="control-btn btn-secondary" onclick="window.location.href='index.html'">
-            ← Top Tier
-        </button>
-        <button class="control-btn btn-primary" onclick="window.location.href='page3.html'">
-            Bottom Tier →
-        </button>
+    <div class="more-teams-buttons">
+        <button class="back-button" onclick="window.location.href='index.html'">Back</button>
+        <button class="back-button" onclick="window.location.href='page3.html'">Next Tier</button>
     </div>
 
-    <button id="scrollTopBtn" title="Ascend to Top">↑</button>
-
-    <footer class="global-footer">
-        <p>&copy; 2026 Formula 1 Hub. Engineered for absolute velocity.</p>
+    <button id="scrollTopBtn" title="Back to top">↑</button>
+    <footer>
+        <p>&copy; 2026 Formula 1. All Rights Reserved.</p>
     </footer>
-
     <script src="js/app.js"></script>
 </body>
 </html>

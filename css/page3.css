@@ -1,527 +1,370 @@
+/* Custom Cinematic Variable Tokens */
+:root {
+    --bg-dark-base: #0a0c10;
+    --card-bg-glass: rgba(18, 22, 31, 0.65);
+    --card-border: rgba(255, 255, 255, 0.08);
+    --text-primary: #ffffff;
+    --text-muted: #94a3b8;
+    
+    /* Team Identity Colors */
+    --haas-red: #E6002B;
+    --haas-glow: rgba(230, 0, 43, 0.15);
+    --williams-blue: #00A0DE;
+    --williams-glow: rgba(0, 160, 222, 0.15);
+    
+    /* Font Configurations */
+    --font-display: 'Orbitron', sans-serif;
+    --font-body: 'Rajdhani', sans-serif;
+}
+
+/* Base Document Structuring */
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--font-body);
+    background-color: var(--bg-dark-base);
+    color: var(--text-primary);
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    /* background-color: #f5f5f5; */
-    color: #333;
-}
-:root{
-    --primary-color:linear-gradient(135deg, #1e41ff, #d60000);
+    overflow-x: hidden;
+    position: relative;
 }
 
+/* Ambient Deep-Space Lighting Effects */
+.ambient-glow {
+    position: fixed;
+    width: 50vw;
+    height: 50vw;
+    border-radius: 50%;
+    filter: blur(140px);
+    z-index: -1;
+    opacity: 0.12;
+    pointer-events: none;
+}
+.glow-1 { top: -10%; left: -10%; background: var(--haas-red); }
+.glow-2 { bottom: -10%; right: -10%; background: var(--williams-blue); }
+
+/* Sticky Header & Glass Nav */
 header {
-    background-color: rgba(255, 255, 255, 0.61);
-    color: black;
-    /* padding: 0.5em 0; */
-    text-align: center;
+    background: rgba(10, 12, 16, 0.8);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 0.1em 0.2em rgba(0, 0, 0, 0.426);
-    transition: background-color 0.3s ease;
+    border-bottom: 1px solid var(--card-border);
 }
 
-/* header:hover {
-    background-color: #cc1900; 
-} */
-
-.logo {
-    height: 5em;
-    margin-right: 5em
-    /* vertical-align: middle; */
-}
-.nav{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#navbar__list {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-}
-
-#navbar__list li {
-    margin: 0 1em;
-}
-
-#navbar__list a.active{
-    background-color: #ff54485a; 
-    transform: scale(1.1);
-    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.284);
-}
-
-#navbar__list a {
-    position: relative;
-    color: black;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 1em 2em;
-    border-radius: 0.25em;
-    transition: background-color 0.5s ease, transform 0.5s ease;
-}
-
-#navbar__list a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 0.2em;
-    background-color: rgba(255, 0, 0, 0.5);
-    transition: width 0.5s ease;
-}
-
-#navbar__list a.active::after {
-    width: 100%;
-    animation: lineMove 0.5s ease forwards;
-}
-
-#navbar__list a:hover::after {
-    width: 100%;
-    animation: lineMove 0.5s ease forwards;
-}
-
-@keyframes lineMove {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100%;
-    }
-}
-
-section {
-    padding: 8em 12%;
-    /* margin-top: 2em; */
-    border-radius: 1em;
-    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-section h2 {
-    font-size: 2.5em;
-    margin-bottom: 0.5em;
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-section p,
-section ul {
-    font-size: 1.25em;
-    color: #f5f5f5;
-}
-
-section ul {
-    list-style-type: square;
-    margin-top: 1em;
-    padding-left: 1.5em;
-}
-
-/* Red Bull Racing - Dark Blue and Red */
-#section1 {
-    background: linear-gradient(135deg, #1e41ff, #d60000);
-}
-
-/* Mercedes-AMG Petronas - Black and Teal */
-#section2 {
-    background: linear-gradient(135deg, #00d2be, #111111);
-}
-
-/* Scuderia Ferrari - Red and Black */
-#section3 {
-    background: linear-gradient(135deg, #dc0000, #000000);
-}
-
-/* McLaren F1 Team - Papaya Orange and Blue */
-#section4 {
-    background: linear-gradient(135deg, #ff8700, #1f8eed);
-}
-
-.team-logo {
-    display: flex;
-    margin: 0 auto ;
-    width: 10em;
-}
-
-.driver-image {
-    width: 8em;
-    height: auto;
-    border-radius: 5%;
-    margin-right: 1em;
-    vertical-align: middle;
-}
-
-section ul li {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: 1.5em;
-    padding-left: 0.5em;
-}
-
-section ul li img.driver-image {
-    margin-right: 1em;
-}
-
-section ul li strong {
-    font-size: 1.2em;
-}
-
-
-.active-section {
-    box-shadow: 0 0.8em 1.5em rgba(0, 0, 0, 0.3);
-}
-
-section {
-    padding: 8em 12%;
-    margin-top: 5em;
-    border-radius: 1em;
-    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-@media (max-width: 48em) {
-    #navbar__list {
-        flex-direction: row;
-    }
-    .description {
-        margin-bottom: -9em;
-    }
-    .logo {
-        height: 3em;
-        margin-right: 0em
-        /* vertical-align: middle; */
-    }
-
-    #section1 {
-        margin-top: 8em;
-    }
-
-    #navbar__list li {
-        display: flex;
-        font-size: small;
-        margin: 0.8em 0;
-    }
-
-    section {
-        padding: 6em 5%;
-    }
-}
-@media (max-width: 80em) {
-    #navbar__list li {
-        display: flex;
-        font-size: 0.72em;
-        margin: 0.8em 0;
-    }
-}
-
-
-@media (min-width: 48em) {
-    section {
-        padding: 8em 10%;
-    }
-}
-@media (max-width: 768px) {
-    section ul li {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    section ul li img.driver-image {
-        margin-right: 0;
-        margin-bottom: 0.5em;
-    }
-
-    section ul li div {
-        text-align: center;
-    }
-}
-
-.description {
-    text-align: center;
-    padding: 2em 0;
-    background-color: #fff;
-    color: #000;
-    margin-bottom: -5em;
-    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.1);
-}
-@media (max-width: 48em) {
-    .description {
-        margin-bottom: -8em;
-    }
-}
-.description h1 {
-    font-size: 2.5em;
-    margin-bottom: 0.1em;
-    /* color: #f60404d8; */
-    font-style: italic;
-}
-.gradient-text {
-    background: linear-gradient(50deg, #ff0202, #f87a0c); 
-    background-clip: text;
-    color: transparent; 
-}
-
-.gradient-text2 {
-    background: linear-gradient(50deg, #ff0202, #f87a0c); 
-    background-clip: text;
-    color: transparent; 
-}
-
-.description p {
-    font-size: 1.2em;
-    color: #666;
-}
-#scrollTopBtn {
-    display: none;
-    font-size: 1.4em;
-    position: fixed;
-    bottom: 2em;
-    right: 2em;
-    background-color: #0e0d0d8f;
-    color: white;
-    border: none;
-    border-radius: 10%;
-    padding: 1em;
-    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    z-index: 1000;
-}
-
-#scrollTopBtn:hover {
-    background-color: #000000;
-}
-
-@keyframes slideInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-50%);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes slideInRight {
-    from {
-        opacity: 0;
-        transform: translateX(50%);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20%);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-section:is(:target, :hover, :focus-within) h2 {
-    animation: slideInLeft 2s ease-out forwards;
-}
-
-section:is(:target, :hover, :focus-within) img.team-logo {
-    animation: slideInRight 2s ease-out forwards;
-}
-
-section:is(:target, :hover, :focus-within) ul li {
-    animation: fadeInUp 2s ease-out forwards;
-}
-
-section h2 {
-    animation-delay: 0.2s;
-}
-
-section img.team-logo {
-    animation-delay: 0.2s;
-}
-
-section ul li{
-    animation-delay: 0.2s;
-}
-
-#intro-section {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 5em 12%;
-    background-color: #fff;
-    color: #000;
-    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.1);
-    border-radius: 1em;
-    margin-top: 5em;
-}
-
-.f1-logo {
-    width: 25em;
-    height: 12em;
-}
-
-.intro-text {
-    display: flex;
-    flex-direction: column;
-    max-width: 60%;
-    flex-basis: 70%;
-}
-
-.intro-text h2 {
-    font-size: 2.5em;
-    color: #000;
-    margin-bottom: 0.5em;
-    background: linear-gradient(50deg, #ff0202, #f87a0c); 
-    background-clip: text;
-    color: transparent; 
-}
-
-.intro-text p {
-    font-size: 1.2em;
-    color: #666;
-}
-.intro-container{
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
 }
-.logodiv{
+
+.nav-logo {
+    height: 2.2rem;
+    object-fit: contain;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nav-logo:hover {
+    transform: scale(1.05) skewX(-4deg);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 1.5rem;
+}
+
+/* Layout Core Architecture */
+.main-content {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 9rem 2rem 4rem 2rem;
+}
+
+/* Typography Overhauls */
+.page-intro {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.subtitle-tag {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    color: var(--haas-red);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.glitch-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    margin: 0;
+    background: linear-gradient(135deg, #fff 30%, #64748b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.intro-description {
+    font-size: 1.3rem;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 1.5rem auto 0 auto;
+    font-weight: 500;
+}
+
+/* Premium Card Engineering */
+.team-card {
+    position: relative;
+    background: var(--card-bg-glass);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 3.5rem;
+    margin-bottom: 4rem;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.haas-card:hover {
+    box-shadow: 0 30px 60px -15px var(--haas-glow);
+    transform: translateY(-5px);
+}
+
+.williams-card:hover {
+    box-shadow: 0 30px 60px -15px var(--williams-glow);
+    transform: translateY(-5px);
+}
+
+.team-header-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 3rem;
+    align-items: center;
+    border-bottom: 1px solid var(--card-border);
+    padding-bottom: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.brand-zone {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.team-brand-logo {
+    height: 4.5rem;
+    width: auto;
+    object-fit: contain;
+}
+
+.team-title {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.team-bio {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Driver Sub-Grid Layouts */
+.drivers-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+}
+
+.driver-profile-card {
+    display: flex;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 16px;
+    padding: 1.5rem;
+    gap: 1.5rem;
+    align-items: center;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+.driver-profile-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.driver-img-container {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.driver-avatar {
+    width: 6.5rem;
+    height: 6.5rem;
+    border-radius: 12px;
+    object-fit: cover;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.driver-number {
+    position: absolute;
+    bottom: -6px;
+    right: -6px;
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 1.1rem;
+    background: #fff;
+    color: #000;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.haas-card .driver-number { background: var(--haas-red); color: #fff; }
+.williams-card .driver-number { background: var(--williams-blue); color: #fff; }
+
+.driver-details h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    margin: 0 0 0.2rem 0;
+}
+
+.driver-status {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    margin: 0 0 0.6rem 0;
+}
+.haas-card .driver-status { color: var(--haas-red); }
+.williams-card .driver-status { color: var(--williams-blue); }
+
+.driver-bio {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Advanced CSS Animation Triggers */
+@keyframes revealFromBelow {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.team-card {
+    animation: revealFromBelow 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.williams-card { animation-delay: 0.15s; }
+
+/* Control Interfaces Zone */
+.action-navigation-zone {
     display: flex;
     justify-content: center;
-    flex-basis: 30%;
-    align-items: center;
+    gap: 2rem;
+    margin: 4rem 0;
 }
 
-footer {
-    /* background-color: #000000fd; */
-    color: black;
-    text-align: center;
-    padding: 1rem 0;
-    bottom: 0;
-    width: 100%;
-    height: 3em;
-}
-
-.more-teams-button {
-    text-decoration: none;
-    text-align: center;
-    margin: 2rem 0;
-}
-.more-teams-button a {
-    color: white; 
-    margin: 2rem 0;
-    text-decoration: none;
-}
-
-.more-teams-buttons{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.more-teams-buttons button {
-    margin: 1em;
-    padding: 1em 2em;
-    background: linear-gradient(135deg, #b40303a7, #b40303a7);
-    color: #fff;
-    border: none;
-    border-radius: 5px;
+.control-btn {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
     cursor: pointer;
-    font-size: 1em;
-    width: 13em;
-    height: 3em;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
-.more-teams-buttons button:hover {
-    color: black;
-    background: linear-gradient(135deg, #f0d3ba, #a1def0f4);
+.btn-primary {
+    background: #ffffff;
+    color: #000000;
 }
-/* Mobile Responsiveness */
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(255, 255, 255, 0.15);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: #ffffff;
+}
+
+.btn-icon {
+    font-size: 1.2rem;
+}
+
+/* Utilities */
+#scrollTopBtn {
+    position: fixed;
+    bottom: 2.5rem;
+    right: 2.5rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    background: rgba(20, 24, 33, 0.85);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(8px);
+    color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s, transform 0.2s;
+    z-index: 99;
+}
+#scrollTopBtn:hover {
+    background: #fff;
+    color: #000;
+    transform: translateY(-3px);
+}
+
+.global-footer {
+    text-align: center;
+    padding: 2.5rem 0;
+    font-size: 1rem;
+    color: #475569;
+    border-top: 1px solid var(--card-border);
+}
+
+/* Premium Adaptive Layout Adjustments */
+@media (max-width: 1024px) {
+    .team-header-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
 @media (max-width: 768px) {
-    
-    section ul li {
-        flex-direction: column;
-        align-items: center; 
-        text-align: center;  
-    }
-
-    section ul li img.driver-image {
-        margin-right: 0;
-        margin-bottom: 0.5em;
-    }
-
-    .intro-text {
-        text-align: center; 
-        max-width: 100%;
-    }
-
-    .intro-container {
-        flex-direction: column; 
-        align-items: center; 
-    }
-
-    .logodiv {
-        margin-top: 1em;
-    }
-
-    section {
-        padding: 6em 5%;
-        margin-top: 5em;
-    }
-
-    #navbar__list {
-        font-size: 0.8em;
-        flex-direction: row; 
-        flex-wrap: nowrap;
-        align-items: center;    
-    }
-
-    #navbar__list li {
-        margin: 0.5em 0; 
-    }
-}
-
-@media (max-width: 480px) {
-    .logo {
-        height: 3em;
-        margin-right: 0;
-    }
-
-    .f1-logo {
-        width: 100%;
-        height: auto; 
-    }
-
-    .description {
-        padding: 1.5em 0;
-        margin-bottom: -5em;
-    }
-
-    .description h1 {
-        font-size: 2em;
-    }
-
-    .description p {
-        font-size: 1em;
-    }
-
-    #scrollTopBtn {
-        font-size: 1.2em;
-        padding: 0.8em;
-        bottom: 1.5em;
-        right: 1.5em;
-    }
+    .main-content { padding-top: 7.5rem; }
+    .drivers-grid { grid-template-columns: 1fr; }
+    .nav-menu { display: none; } /* Kept clean for custom mobile drawers if required */
+    .team-card { padding: 2rem; }
+    .brand-zone { flex-direction: column; text-align: center; gap: 1rem; }
+    .driver-profile-card { flex-direction: column; text-align: center; }
+    .action-navigation-zone { flex-direction: column; align-items: center; gap: 1rem; }
+    .control-btn { width: 100%; justify-content: center; }
 }

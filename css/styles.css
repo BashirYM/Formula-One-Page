@@ -1,40 +1,319 @@
-/* Import all base card tokens and animations from page 3, then append these specialized brand definitions: */
+/* Custom Variable Layout System */
 :root {
-    --bg-dark-base: #0a0c10;
-    --card-bg-glass: rgba(18, 22, 31, 0.65);
+    --bg-dark: #0a0c10;
     --card-border: rgba(255, 255, 255, 0.08);
     --text-primary: #ffffff;
-    --text-muted: #94a3b8;
+    --text-muted: #a0aec0;
     --font-display: 'Orbitron', sans-serif;
     --font-body: 'Rajdhani', sans-serif;
-    
-    /* Frontrunner Brands */
-    --rb-dark: #0c192c;
-    --rb-glow: rgba(26, 54, 93, 0.4);
-    --ferrari-red: #E10600;
-    --ferrari-glow: rgba(225, 6, 0, 0.2);
 }
 
-/* Include general body, header, typography styling from Page 3 core... */
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
 
-.hero-showcase {
-    background: var(--card-bg-glass);
+/* Glassmorphic Navigation Menu Bar */
+header {
+    background: rgba(10, 12, 16, 0.8);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--card-border);
+    transition: background-color 0.3s ease;
+}
+
+.logo {
+    height: 3.5em;
+    margin-right: 3em;
+    transition: transform 0.3s ease;
+}
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.75rem 2rem;
+}
+
+#navbar__list {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 1rem;
+}
+
+#navbar__list li {
+    display: flex;
+}
+
+/* Dynamic Active State Hooks used by app.js */
+#navbar__list a {
+    position: relative;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+#navbar__list a:hover,
+#navbar__list a.active {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+#navbar__list a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ff1801;
+    transition: width 0.3s ease;
+}
+
+#navbar__list a.active::after,
+#navbar__list a:hover::after {
+    width: 100%;
+}
+
+/* Header Text Banner Context */
+.description {
+    text-align: center;
+    padding: 6em 2em 2em 2em;
+    background-color: #0d0f14;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.description h1 {
+    font-family: var(--font-display);
+    font-size: 2.8em;
+    font-weight: 900;
+    margin: 0.2em 0;
+    text-transform: uppercase;
+}
+
+.description h2 {
+    font-size: 1.3em;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #ffffff 40%, #64748b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Core Segment Layout Containers */
+section {
+    padding: 5rem 10%;
+    margin: 3rem auto;
+    max-width: 1100px;
+    border-radius: 16px;
     border: 1px solid var(--card-border);
-    border-radius: 24px;
-    padding: 4rem;
-    margin-bottom: 4rem;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.intro-container { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
-.f1-logo { width: 100%; max-width: 20rem; height: auto; opacity: 0.85; filter: drop-shadow(0 0 20px rgba(255,255,255,0.05)); }
 
-.redbull-card:hover { box-shadow: 0 30px 60px -15px var(--rb-glow); transform: translateY(-5px); }
-.redbull-card .driver-number { background: #ffec00; color: #000; }
-.redbull-card .driver-status { color: #ffec00; }
+section:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
 
-.ferrari-card:hover { box-shadow: 0 30px 60px -15px var(--ferrari-glow); transform: translateY(-5px); }
-.ferrari-card .driver-number { background: var(--ferrari-red); color: #fff; }
-.ferrari-card .driver-status { color: var(--ferrari-red); }
+.landing__container {
+    width: 100%;
+}
 
-/* Reuse general layouts, grids, responsiveness parameters from page 3 layout */
+section h2 {
+    font-family: var(--font-display);
+    font-size: 2.2em;
+    margin: 0.5em 0;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+}
+
+section p {
+    font-size: 1.2em;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    max-width: 800px;
+}
+
+.team-logo {
+    display: block;
+    max-height: 4.5rem;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 1.5rem;
+}
+
+/* Drivers Substructure Framework */
+section ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 2rem 0 0 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+section ul li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    padding: 1.5rem;
+    border-radius: 12px;
+    gap: 1.5rem;
+    transition: background-color 0.2s ease;
+}
+
+section ul li:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.driver-image {
+    width: 6em;
+    height: 6em;
+    border-radius: 8px;
+    object-fit: cover;
+    background: rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
+}
+
+section ul li strong {
+    font-family: var(--font-display);
+    display: block;
+    font-size: 1.2em;
+    margin-bottom: 0.25rem;
+    color: #ffffff;
+}
+
+section ul li div {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+}
+
+/* Control Interfaces Zone */
+.more-teams-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 4rem 0;
+}
+
+.back-button {
+    font-family: var(--font-display);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 1rem 2.5rem;
+    background: #ffffff;
+    color: #000000;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.back-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+}
+
+/* UI Action Utilities */
+#scrollTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 2.5rem;
+    right: 2.5rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    background: rgba(20, 24, 33, 0.85);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(8px);
+    color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: background 0.3s, transform 0.2s;
+}
+
+#scrollTopBtn:hover {
+    background: #ffffff;
+    color: #000000;
+    transform: translateY(-3px);
+}
+
+footer {
+    text-align: center;
+    padding: 3rem 0;
+    color: #475569;
+    border-top: 1px solid var(--card-border);
+    font-size: 0.95rem;
+}
+
+/* Precise CSS Animations triggered via keyframes */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+section h2, section img.team-logo, section p, section ul li {
+    animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Layout Responsiveness Adjustments */
+@media (max-width: 900px) {
+    section ul {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .logo {
+        margin-right: 0;
+    }
+    section {
+        padding: 3rem 5%;
+        margin: 2rem 1rem;
+    }
+    section ul li {
+        flex-direction: column;
+        text-align: center;
+    }
+}

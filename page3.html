@@ -3,79 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>F1 Info - Last Two Teams</title>
+    <title>F1 Hub | Elite Competitors</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/page3.css">
 </head>
 <body>
+    <!-- Premium Ambient Background Glows -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
     <header>
-        <nav class="nav">
-            <img src="./images/f1logo.png" alt="F1 Info Logo" class="logo" >
-            <div>
-                <ul id="navbar__list"></ul>
+        <nav class="nav-container">
+            <div class="logo-wrapper">
+                <img src="./images/f1logo.png" alt="F1 Info Logo" class="nav-logo">
             </div>
+            <ul id="navbar__list" class="nav-menu">
+                <!-- Dynamically populated via JS, or fallback links -->
+            </ul>
         </nav>
     </header>
-    <div class="description">
-        <h2 class="gradient-text" style="margin-top: 3em;">These are the last two teams, consider the bottom teams and are always in battle not to be the last.</h2>
-        <h1 class="gradient-text">Below are the last two Formula 1 teams</h1>
-    </div>
-    <main>
-        <section id="section9" data-nav="Haas F1" style="background: linear-gradient(1360deg, #E6002B, #9391ec);">
-            <div class="landing__container">
-                <img src="./images/haas_logo.png" alt="Haas F1 Team Logo" class="team-logo" style="width: 15em;">
-                <h2>MoneyGram Haas </h2>
-                <p>
-                    Haas F1 Team, based in the United States, has been competing in Formula 1 since 2016, known for its strong partnerships with MoneyGram and competitive spirit.
+
+    <main class="main-content">
+        <header class="page-intro">
+            <p class="subtitle-tag">Grid Overview</p>
+            <h1 class="glitch-title">The Midfield Battleground</h1>
+            <p class="intro-description">
+                Pushing technological boundaries where milliseconds dictate survival. These outfits weaponize precision engineering to challenge giants and dominate the tightest battles on the asphalt.
+            </p>
+        </header>
+
+        <!-- HAAS SECTIONS -->
+        <section id="section9" data-nav="Haas F1" class="team-card haas-card">
+            <div class="card-glass-overlay"></div>
+            <div class="team-header-grid">
+                <div class="brand-zone">
+                    <img src="./images/haas_logo.png" alt="Haas F1 Team Logo" class="team-brand-logo">
+                    <h2 class="team-title">MoneyGram Haas F1 Team</h2>
+                </div>
+                <p class="team-bio">
+                    Utilizing an agile, cross-continental operational infrastructure and cutting-edge partnership developments, Haas stands as a ruthless challenger optimized for maximum efficiency and strategic grid disruption.
                 </p>
-                <ul>
-                    <li>
-                        <img src="./images/magnussen.png" alt="Kevin Magnussen" class="driver-image">
-                        <div>
-                            <strong>Kevin Magnussen</strong>: The Danish driver, known for his aggressive driving style and dedication, leads the Haas F1 Team.
-                        </div>
-                    </li>
-                    <li>
-                        <img src="./images/hulkenberg.png" alt="Nico Hülkenberg" class="driver-image">
-                        <div>
-                            <strong>Nico Hülkenberg</strong>: The experienced German driver, returning to the grid with Haas, brings a wealth of knowledge and skill.
-                        </div>
-                    </li>
-                </ul>
+            </div>
+
+            <div class="drivers-grid">
+                <!-- Driver 1 -->
+                <div class="driver-profile-card">
+                    <div class="driver-img-container">
+                        <img src="./images/ocon.png" alt="Esteban Ocon" class="driver-avatar">
+                        <span class="driver-number">31</span>
+                    </div>
+                    <div class="driver-details">
+                        <h3>Esteban Ocon</h3>
+                        <p class="driver-status">Grand Prix Winner</p>
+                        <p class="driver-bio">The battle-tested Frenchman brings unyielding defensive mastery, immense tactical resilience, and reliable race-winning pedigree to spearhead the team's engineering progression.</p>
+                    </div>
+                </div>
+
+                <!-- Driver 2 -->
+                <div class="driver-profile-card">
+                    <div class="driver-img-container">
+                        <img src="./images/bearman.png" alt="Oliver Bearman" class="driver-avatar">
+                        <span class="driver-number">87</span>
+                    </div>
+                    <div class="driver-details">
+                        <h3>Oliver Bearman</h3>
+                        <p class="driver-status">Rising Prodigy</p>
+                        <p class="driver-bio">Backed by elite developmental programs, the explosive young British phenom pairs fearless overtaking instincts with clinical technical feedback to reshape the team's ceiling.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="section10" data-nav="Williams Racing" style=" background: linear-gradient(1360deg, #00A0DE, #000000)">
-            <div class="landing__container">
-                <img src="./images/williams_logo.png" alt="Williams Racing Logo" class="team-logo">
-                <h2>Williams Racing</h2>
-                <p>
-                    Williams Racing, a legendary name in Formula 1, has a storied history and continues to develop its team and drivers with a focus on returning to its former glory.
+        <!-- WILLIAMS SECTION -->
+        <section id="section10" data-nav="Williams Racing" class="team-card williams-card">
+            <div class="card-glass-overlay"></div>
+            <div class="team-header-grid">
+                <div class="brand-zone">
+                    <img src="./images/williams_logo.png" alt="Williams Racing Logo" class="team-brand-logo">
+                    <h2 class="team-title">Atlassian Williams Racing</h2>
+                </div>
+                <p class="team-bio">
+                    One of the sport's most legendary historical empires executing a aggressive, data-driven modernization roadmap. Backed by cutting-edge resource investments to restore clinical dominance.
                 </p>
-                <ul>
-                    <li>
-                        <img src="./images/albon.png" alt="Alex Albon" class="driver-image">
-                        <div>
-                            <strong>Alex Albon</strong>: The Thai-British driver, known for his resilience and racecraft, plays a crucial role in Williams' resurgence.
-                        </div>
-                    </li>
-                    <li>
-                        <img src="./images/sargent.png" alt="Logan Sargeant" class="driver-image">
-                        <div>
-                            <strong>Logan Sargeant</strong>: The American rookie, with a promising future, represents Williams' investment in young talent.
-                        </div>
-                    </li>
-                </ul>
+            </div>
+
+            <div class="drivers-grid">
+                <!-- Driver 1 -->
+                <div class="driver-profile-card">
+                    <div class="driver-img-container">
+                        <img src="./images/albon.png" alt="Alex Albon" class="driver-avatar">
+                        <span class="driver-number">23</span>
+                    </div>
+                    <div class="driver-details">
+                        <h3>Alex Albon</h3>
+                        <p class="driver-status">Team Spearhead</p>
+                        <p class="driver-bio">Renowned for maximizing mechanical limits and pulling masterclass tire-management strategies out of thin air, the Thai-British pilot acts as Williams' foundational technical pillar.</p>
+                    </div>
+                </div>
+
+                <!-- Driver 2 -->
+                <div class="driver-profile-card">
+                    <div class="driver-img-container">
+                        <img src="./images/sainz.png" alt="Carlos Sainz" class="driver-avatar">
+                        <span class="driver-number">55</span>
+                    </div>
+                    <div class="driver-details">
+                        <h3>Carlos Sainz</h3>
+                        <p class="driver-status">The Smooth Operator</p>
+                        <p class="driver-bio">Arriving with elite race-winning technical maturity, the analytical Spaniard injects tactical precision, flawless structural coordination, and immense raw competitive velocity.</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
-    <div class="more-teams-buttons">
-        <button class="back-button" onclick="window.location.href='page2.html'">Back</button>
-        <button class="back-button" onclick="window.location.href='index.html'">Home</button>
+
+    <!-- Navigation Action Zone -->
+    <div class="action-navigation-zone">
+        <button class="control-btn btn-secondary" onclick="window.location.href='page2.html'">
+            <span class="btn-icon">←</span> Midfield Tier
+        </button>
+        <button class="control-btn btn-primary" onclick="window.location.href='index.html'">
+            Home Grid <span class="btn-icon">⌂</span>
+        </button>
     </div>
-    <button id="scrollTopBtn" title="Back to top">↑</button>
-    <footer>
-        <p>&copy; 2024 Formula 1. All Rights Reserved.</p>
+
+    <!-- UI Interaction Utilities -->
+    <button id="scrollTopBtn" title="Ascend to Top">↑</button>
+
+    <footer class="global-footer">
+        <p>&copy; 2026 Formula 1 Hub. Engineered for absolute velocity.</p>
     </footer>
+
     <script src="js/app.js"></script>
 </body>
 </html>
